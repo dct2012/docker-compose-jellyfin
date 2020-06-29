@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    user: 1000:1000
+    network_mode: "host"
+    volumes:
+      - ./_jellyfin/cache:/cache
+      - ./_jellyfin/config:/config
+      - ./_jellyfin/tv:/tv
+      - ./_jellyfin/movies:/movies
+    restart: unless-stopped
